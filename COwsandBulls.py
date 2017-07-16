@@ -2,9 +2,11 @@ import random
 
 print("Welcome to Cows and bull game!!!\nTo exit press enter two times..")
 print("Enter a four digit number:")
-num = random.randrange(1000, 9999)
-lsit_number = list(str(num))
-print(lsit_number)
+num = random.sample(range(0, 9), 4)
+lsit_number = num
+num = int("".join([str(el) for el in num]))
+# print(lsit_number)
+# print(num)
 
 state = False
 
@@ -25,8 +27,8 @@ def checkcowsandbulls(usernum):
                 cows = cows + 1
                 # print('in cow', int(lsit_number[-cn]), rem)
             else:
-                if lsit_number.count(rem) < bulls:
-                    bulls = bulls + 1
+
+                bulls = bulls + 1
                     # print('in bulls', int(lsit_number[-cn]), rem)
         cn = cn + 1
 
@@ -55,4 +57,4 @@ try:
                 cow, bull = checkcowsandbulls(usernum)
                 print("Cows: ", cow, " Bulls: ", bull)
 except Exception as e:
-    print("You gave up!!!!!")
+    print("You gave up!!!!!",e)
